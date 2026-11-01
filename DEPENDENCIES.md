@@ -4,6 +4,10 @@ This registry records where every effect referenced by `Lazara.ini` is owned.
 Submodules are pinned to the listed commits; updating a link requires a new
 review and commit in this repository.
 
+Recorded SHA-256 values cover the repository's canonical LF shader bytes.
+`.gitattributes` enforces LF checkout for `*.fx` and `*.fxh` so the same values
+are reproducible on Windows even when global `core.autocrlf` is enabled.
+
 | Preset effect file | Source | Pinned revision or local identity |
 |---|---|---|
 | `OCCULT_lazara.fx` | [`dastardlyrat/lazara`](https://github.com/dastardlyrat/lazara) | `2c28697a344fb988d784ed31f4d65b107821327b` |
