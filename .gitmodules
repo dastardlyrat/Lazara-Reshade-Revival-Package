@@ -1,0 +1,9 @@
+[submodule "upstream/lazara"]
+	path = upstream/lazara
+	url = https://github.com/dastardlyrat/lazara.git
+[submodule "upstream/Occult-Box"]
+	path = upstream/Occult-Box
+	url = https://github.com/dastardlyrat/Occult-Box.git
+[submodule "upstream/OpenSurface-CameraObscura-GuidedDetail"]
+	path = upstream/OpenSurface-CameraObscura-GuidedDetail
+	url = https://github.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail.git

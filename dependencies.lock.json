@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-11-01",
+  "preset": "Lazara.ini",
+  "external_framework_files": [
+    "ReShade.fxh"
+  ],
+  "linked_sources": [
+    {
+      "repository": "https://github.com/dastardlyrat/lazara.git",
+      "commit": "2c28697a344fb988d784ed31f4d65b107821327b",
+      "submodule_path": "upstream/lazara",
+      "effect_files": [
+        "OCCULT_lazara.fx"
+      ]
+    },
+    {
+      "repository": "https://github.com/dastardlyrat/Occult-Box.git",
+      "commit": "eef2b91b314ddc1a68547d0fb1daa2413adfce66",
+      "submodule_path": "upstream/Occult-Box",
+      "effect_files": [
+        "BlackWand_05_GI_ColorBleed.fx",
+        "BlackWand_07_ToneDetail_Richness.fx",
+        "BlackWand_10_FogLight_Guard.fx",
+        "BlackWand_12_MicroDetail_Clarity.fx",
+        "BlackWand_14_BloomBurst_Corona.fx",
+        "BlackWand_21_EdgeChromaWard.fx",
+        "FoolsGold.fx",
+        "GoldenWeave_RMGI_Redux.fx"
+      ]
+    },
+    {
+      "repository": "https://github.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail.git",
+      "commit": "68850554650abe22cca029a65f7a807b6b3b3047",
+      "submodule_path": "upstream/OpenSurface-CameraObscura-GuidedDetail",
+      "effect_files": [
+        "OSCO_GuidedDetailReclamation.fx",
+        "OSCO_GuidedInkLines.fx"
+      ]
+    }
+  ],
+  "local_files": [
+    {
+      "path": "reshade-shaders/Shaders/camera_obscura_external/effects/CAMERA_OBSCURA_ExternalImageDenoiseV1.fx",
+      "sha256": "1E80B48C83FAF24B12D240F2575D56A49EBC1487FAD75ED55C829A4D05ED3802"
+    },
+    {
+      "path": "reshade-shaders/Shaders/camera_obscura_external/api/CAMERA_OBSCURA_API_ExternalImageDenoise.fxh",
+      "sha256": "21F27AD8729742A19CA2F861316CE177228584C9EF8346FEE934E41DCBAC9E50"
+    },
+    {
+      "path": "reshade-shaders/Shaders/camera_obscura_detail_cache/effects/CAMERA_OBSCURA_StabilizedDetailCacheV1.fx",
+      "sha256": "AABCAE17124C4DF9BE076CDFC718F860A10568B5D6BBC3DA7737209FD984559B"
+    },
+    {
+      "path": "reshade-shaders/Shaders/camera_obscura_detail_cache/api/CAMERA_OBSCURA_API_StabilizedDetailCache.fxh",
+      "sha256": "FBBCAF786B5C52D4A298CAF4D5A4604DD2CBE996104E3B3AFB16E2C5403B29F4"
+    }
+  ]
+}
