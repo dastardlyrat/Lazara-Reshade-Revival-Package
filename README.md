@@ -11,6 +11,15 @@ repository.
 - `ReShade.fxh` is an external dependency supplied by the installed ReShade
   shader package. This repository does not replace it.
 
+## On/off comparison
+
+![Two Lazara comparison sets, each showing effects off on the left and on on the right](docs/images/lazara-on-off-stitch.png)
+
+The castle scene is Set 1 and the eclipse scene is Set 2. In both rows, OFF is
+on the left and ON is on the right. Native-resolution source images, hashes,
+and rebuild instructions are recorded in
+[`docs/images/README.md`](docs/images/README.md).
+
 ## Install
 
 Do not use GitHub's **Download ZIP** for this repository: source archives do
