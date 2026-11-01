@@ -43,6 +43,14 @@ missing capture returns the current source unchanged.
 
 ## On/off comparison
 
+![Bidirectional split comparison: effects on then off, followed by effects off then on](docs/images/lazara-bidirectional-split-stitch.png)
+
+The split comparison uses the snow-fortress screenshots supplied for Set 3.
+Image 1 is OFF and Image 2 is ON. The left panel is ON-left/OFF-right; the
+right panel is OFF-left/ON-right, exposing both halves of both source images.
+
+### Earlier full-frame sets
+
 ![Two Lazara comparison sets, each showing effects off on the left and on on the right](docs/images/lazara-on-off-stitch.png)
 
 The castle scene is Set 1 and the eclipse scene is Set 2. In both rows, OFF is
