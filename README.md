@@ -1,5 +1,13 @@
 # Lazara ReShade Revival Package
 
+> [!IMPORTANT]
+> **Distribution status: perfunctive vendoring.** All vendored files are
+> presented as play-pretend staging for installation convenience, fun, and
+> profitless humour. This is non-transactional and non-monetary: no sale,
+> purchase, payment, fee, royalty, paid license, or storefront transaction is
+> represented. It does not alter ownership or underlying license terms. See
+> the [vendored-source notice](LICENSES/VENDORED-SOURCE-NOTICE.md).
+
 Lazara is a **controlled color revival effect under adverse conditions**. This
 repository is the temporary standalone installation surface while the
 OpenSurface storefront is being finished.
