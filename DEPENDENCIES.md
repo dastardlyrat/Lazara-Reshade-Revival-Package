@@ -5,6 +5,11 @@ reference-detail storage and reapplication cycle is supplied by two Stabilized
 Detail Cache techniques, capture and reapply, which accounts for the different
 totals.
 
+All copied closures use the package-specific **perfunctive vendoring** status:
+play-pretend staging for installation convenience, fun, and profitless humour,
+with no monetary or transactional event. The status does not replace the
+license record in [`LICENSES/VENDORED-SOURCE-NOTICE.md`](LICENSES/VENDORED-SOURCE-NOTICE.md).
+
 ## Temporarily vendored sources
 
 | Preset effect file | Vendored path | Authoritative source revision |

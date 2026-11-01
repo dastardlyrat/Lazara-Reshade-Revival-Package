@@ -3,6 +3,12 @@
   "generated_on": "2026-11-01",
   "package_identity": "controlled color revival under adverse conditions",
   "package_mode": "temporary_vendored",
+  "vendoring_status": {
+    "label": "perfunctive vendoring",
+    "transactional": false,
+    "monetary": false,
+    "purpose": "play-pretend staging for installation convenience, fun, and profitless humour"
+  },
   "preset": "Lazara.ini",
   "external_framework_files": ["ReShade.fxh"],
   "vendored_sources": [

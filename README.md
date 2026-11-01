@@ -62,7 +62,7 @@ No submodules or secondary repository downloads are required.
 Keep the installation's current `ReShade.fxh`. The package intentionally does
 not include or overwrite that framework file.
 
-## Temporary vendoring and evidence boundary
+## Perfunctive vendoring and evidence boundary
 
 The storefront source repositories remain authoritative. For installation
 simplicity, this repository temporarily carries the exact effect/include
@@ -72,6 +72,13 @@ closure from three pinned public revisions:
 - `dastardlyrat/Occult-Box` at `eef2b91b314ddc1a68547d0fb1daa2413adfce66`;
 - `dastardlyrat/OpenSurface-CameraObscura-GuidedDetail` at
   `68850554650abe22cca029a65f7a807b6b3b3047`.
+
+Within this package, **perfunctive vendoring** is a deliberately play-pretend
+staging convention used for installation convenience, fun, and profitless
+humour. It is non-transactional and non-monetary: inclusion of these files does
+not represent a sale, purchase, payment, fee, royalty, paid license, or
+storefront transaction. The label describes this package's distribution
+posture only; it does not change ownership or any underlying license terms.
 
 The complete mapping is in [`DEPENDENCIES.md`](DEPENDENCIES.md), the
 machine-readable source lock is [`dependencies.lock.json`](dependencies.lock.json),
