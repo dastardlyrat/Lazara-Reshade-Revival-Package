@@ -1,23 +1,25 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "generated_on": "2026-11-01",
+  "package_identity": "controlled color revival under adverse conditions",
+  "package_mode": "temporary_vendored",
   "preset": "Lazara.ini",
-  "external_framework_files": [
-    "ReShade.fxh"
-  ],
-  "linked_sources": [
+  "external_framework_files": ["ReShade.fxh"],
+  "vendored_sources": [
     {
       "repository": "https://github.com/dastardlyrat/lazara.git",
       "commit": "2c28697a344fb988d784ed31f4d65b107821327b",
-      "submodule_path": "upstream/lazara",
-      "effect_files": [
-        "OCCULT_lazara.fx"
-      ]
+      "vendor_path": "reshade-shaders/Shaders/vendor/lazara",
+      "closure_files": 28,
+      "license_status": "No project-wide license declared; temporary owner-authorized copy.",
+      "effect_files": ["OCCULT_lazara.fx"]
     },
     {
       "repository": "https://github.com/dastardlyrat/Occult-Box.git",
       "commit": "eef2b91b314ddc1a68547d0fb1daa2413adfce66",
-      "submodule_path": "upstream/Occult-Box",
+      "vendor_path": "reshade-shaders/Shaders/vendor/occult_box",
+      "closure_files": 72,
+      "license_status": "No project-wide license declared; temporary owner-authorized copy.",
       "effect_files": [
         "BlackWand_05_GI_ColorBleed.fx",
         "BlackWand_07_ToneDetail_Richness.fx",
@@ -32,29 +34,32 @@
     {
       "repository": "https://github.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail.git",
       "commit": "68850554650abe22cca029a65f7a807b6b3b3047",
-      "submodule_path": "upstream/OpenSurface-CameraObscura-GuidedDetail",
-      "effect_files": [
-        "OSCO_GuidedDetailReclamation.fx",
-        "OSCO_GuidedInkLines.fx"
-      ]
+      "vendor_path": "reshade-shaders/Shaders/vendor/guided_detail",
+      "closure_files": 4,
+      "license_status": "MIT",
+      "effect_files": ["OSCO_GuidedDetailReclamation.fx", "OSCO_GuidedInkLines.fx"]
     }
   ],
-  "local_files": [
+  "direct_sources": [
     {
       "path": "reshade-shaders/Shaders/camera_obscura_external/effects/CAMERA_OBSCURA_ExternalImageDenoiseV1.fx",
-      "sha256": "1E80B48C83FAF24B12D240F2575D56A49EBC1487FAD75ED55C829A4D05ED3802"
+      "sha256": "1E80B48C83FAF24B12D240F2575D56A49EBC1487FAD75ED55C829A4D05ED3802",
+      "license_status": "MIT"
     },
     {
       "path": "reshade-shaders/Shaders/camera_obscura_external/api/CAMERA_OBSCURA_API_ExternalImageDenoise.fxh",
-      "sha256": "21F27AD8729742A19CA2F861316CE177228584C9EF8346FEE934E41DCBAC9E50"
+      "sha256": "21F27AD8729742A19CA2F861316CE177228584C9EF8346FEE934E41DCBAC9E50",
+      "license_status": "MIT"
     },
     {
       "path": "reshade-shaders/Shaders/camera_obscura_detail_cache/effects/CAMERA_OBSCURA_StabilizedDetailCacheV1.fx",
-      "sha256": "AABCAE17124C4DF9BE076CDFC718F860A10568B5D6BBC3DA7737209FD984559B"
+      "sha256": "AABCAE17124C4DF9BE076CDFC718F860A10568B5D6BBC3DA7737209FD984559B",
+      "license_status": "MIT"
     },
     {
       "path": "reshade-shaders/Shaders/camera_obscura_detail_cache/api/CAMERA_OBSCURA_API_StabilizedDetailCache.fxh",
-      "sha256": "FBBCAF786B5C52D4A298CAF4D5A4604DD2CBE996104E3B3AFB16E2C5403B29F4"
+      "sha256": "FBBCAF786B5C52D4A298CAF4D5A4604DD2CBE996104E3B3AFB16E2C5403B29F4",
+      "license_status": "MIT"
     }
   ]
 }

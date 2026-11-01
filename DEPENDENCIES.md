@@ -1,40 +1,35 @@
 # Dependency Registry
 
-This registry records where every effect referenced by `Lazara.ini` is owned.
-Submodules are pinned to the listed commits; updating a link requires a new
-review and commit in this repository.
+`Lazara.ini` enables 14 techniques from 13 effect files. Stabilized Detail
+Cache supplies two techniques, capture and reapply, which accounts for the
+different totals.
 
-Recorded SHA-256 values cover the repository's canonical LF shader bytes.
-`.gitattributes` enforces LF checkout for `*.fx` and `*.fxh` so the same values
-are reproducible on Windows even when global `core.autocrlf` is enabled.
+## Temporarily vendored sources
 
-| Preset effect file | Source | Pinned revision or local identity |
+| Preset effect file | Vendored path | Authoritative source revision |
 |---|---|---|
-| `OCCULT_lazara.fx` | [`dastardlyrat/lazara`](https://github.com/dastardlyrat/lazara) | `2c28697a344fb988d784ed31f4d65b107821327b` |
-| `BlackWand_05_GI_ColorBleed.fx` | [`dastardlyrat/Occult-Box`](https://github.com/dastardlyrat/Occult-Box) | `eef2b91b314ddc1a68547d0fb1daa2413adfce66` |
-| `BlackWand_07_ToneDetail_Richness.fx` | [`dastardlyrat/Occult-Box`](https://github.com/dastardlyrat/Occult-Box) | `eef2b91b314ddc1a68547d0fb1daa2413adfce66` |
-| `BlackWand_10_FogLight_Guard.fx` | [`dastardlyrat/Occult-Box`](https://github.com/dastardlyrat/Occult-Box) | `eef2b91b314ddc1a68547d0fb1daa2413adfce66` |
-| `BlackWand_12_MicroDetail_Clarity.fx` | [`dastardlyrat/Occult-Box`](https://github.com/dastardlyrat/Occult-Box) | `eef2b91b314ddc1a68547d0fb1daa2413adfce66` |
-| `BlackWand_14_BloomBurst_Corona.fx` | [`dastardlyrat/Occult-Box`](https://github.com/dastardlyrat/Occult-Box) | `eef2b91b314ddc1a68547d0fb1daa2413adfce66` |
-| `BlackWand_21_EdgeChromaWard.fx` | [`dastardlyrat/Occult-Box`](https://github.com/dastardlyrat/Occult-Box) | `eef2b91b314ddc1a68547d0fb1daa2413adfce66` |
-| `FoolsGold.fx` | [`dastardlyrat/Occult-Box`](https://github.com/dastardlyrat/Occult-Box) | `eef2b91b314ddc1a68547d0fb1daa2413adfce66` |
-| `GoldenWeave_RMGI_Redux.fx` | [`dastardlyrat/Occult-Box`](https://github.com/dastardlyrat/Occult-Box) | `eef2b91b314ddc1a68547d0fb1daa2413adfce66` |
-| `OSCO_GuidedDetailReclamation.fx` | [`dastardlyrat/OpenSurface-CameraObscura-GuidedDetail`](https://github.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail) | `68850554650abe22cca029a65f7a807b6b3b3047` |
-| `OSCO_GuidedInkLines.fx` | [`dastardlyrat/OpenSurface-CameraObscura-GuidedDetail`](https://github.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail) | `68850554650abe22cca029a65f7a807b6b3b3047` |
-| `CAMERA_OBSCURA_ExternalImageDenoiseV1.fx` | This repository | SHA-256 `1E80B48C83FAF24B12D240F2575D56A49EBC1487FAD75ED55C829A4D05ED3802` |
-| `CAMERA_OBSCURA_StabilizedDetailCacheV1.fx` | This repository | SHA-256 `AABCAE17124C4DF9BE076CDFC718F860A10568B5D6BBC3DA7737209FD984559B` |
+| `OCCULT_lazara.fx` | `reshade-shaders/Shaders/vendor/lazara/rm/effects/OCCULT_lazara.fx` | `dastardlyrat/lazara@2c28697a344fb988d784ed31f4d65b107821327b` |
+| `BlackWand_05_GI_ColorBleed.fx` | `reshade-shaders/Shaders/vendor/occult_box/black_wand/effects/BlackWand_05_GI_ColorBleed.fx` | `dastardlyrat/Occult-Box@eef2b91b314ddc1a68547d0fb1daa2413adfce66` |
+| `BlackWand_07_ToneDetail_Richness.fx` | `reshade-shaders/Shaders/vendor/occult_box/black_wand/effects/BlackWand_07_ToneDetail_Richness.fx` | same Occult Box revision |
+| `BlackWand_10_FogLight_Guard.fx` | `reshade-shaders/Shaders/vendor/occult_box/black_wand/effects/BlackWand_10_FogLight_Guard.fx` | same Occult Box revision |
+| `BlackWand_12_MicroDetail_Clarity.fx` | `reshade-shaders/Shaders/vendor/occult_box/black_wand/effects/BlackWand_12_MicroDetail_Clarity.fx` | same Occult Box revision |
+| `BlackWand_14_BloomBurst_Corona.fx` | `reshade-shaders/Shaders/vendor/occult_box/black_wand/effects/BlackWand_14_BloomBurst_Corona.fx` | same Occult Box revision |
+| `BlackWand_21_EdgeChromaWard.fx` | `reshade-shaders/Shaders/vendor/occult_box/black_wand/effects/BlackWand_21_EdgeChromaWard.fx` | same Occult Box revision |
+| `FoolsGold.fx` | `reshade-shaders/Shaders/vendor/occult_box/book_of_death/effects/FoolsGold.fx` | same Occult Box revision |
+| `GoldenWeave_RMGI_Redux.fx` | `reshade-shaders/Shaders/vendor/occult_box/golden_weave/effects/GoldenWeave_RMGI_Redux.fx` | same Occult Box revision |
+| `OSCO_GuidedDetailReclamation.fx` | `reshade-shaders/Shaders/vendor/guided_detail/effects/OSCO_GuidedDetailReclamation.fx` | `dastardlyrat/OpenSurface-CameraObscura-GuidedDetail@68850554650abe22cca029a65f7a807b6b3b3047` |
+| `OSCO_GuidedInkLines.fx` | `reshade-shaders/Shaders/vendor/guided_detail/effects/OSCO_GuidedInkLines.fx` | same Guided Detail revision |
 
-The Stabilized Detail Cache effect exposes two techniques, capture and reapply,
-which is why the preset has 14 techniques but only 13 effect files.
+The temporary closure contains 104 files: 11 effect files and 93 headers. It
+excludes repository documentation, development artifacts, screenshots, and the
+upstream `ReShade.fxh` preprocessing copy.
 
-## Local Camera Obscura headers
+## Directly published Camera Obscura sources
 
-| File | SHA-256 |
+| Effect file | Local path |
 |---|---|
-| `camera_obscura_external/api/CAMERA_OBSCURA_API_ExternalImageDenoise.fxh` | `21F27AD8729742A19CA2F861316CE177228584C9EF8346FEE934E41DCBAC9E50` |
-| `camera_obscura_detail_cache/api/CAMERA_OBSCURA_API_StabilizedDetailCache.fxh` | `FBBCAF786B5C52D4A298CAF4D5A4604DD2CBE996104E3B3AFB16E2C5403B29F4` |
+| `CAMERA_OBSCURA_ExternalImageDenoiseV1.fx` | `reshade-shaders/Shaders/camera_obscura_external/effects/CAMERA_OBSCURA_ExternalImageDenoiseV1.fx` |
+| `CAMERA_OBSCURA_StabilizedDetailCacheV1.fx` | `reshade-shaders/Shaders/camera_obscura_detail_cache/effects/CAMERA_OBSCURA_StabilizedDetailCacheV1.fx` |
 
-`ReShade.fxh` remains external and must come from the installed ReShade shader
-package. The linked Lazara repository retains a copy for its own preprocessing
-checks; the installed shader directory should precede linked source paths so a
-current installation-provided version takes precedence.
+`ReShade.fxh` is the only external shader-framework dependency admitted by the
+package validator.

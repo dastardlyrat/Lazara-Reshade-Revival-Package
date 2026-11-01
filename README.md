@@ -1,15 +1,20 @@
-# Lazara ReShade Package
+# Lazara ReShade Revival Package
 
-This repository combines the `Lazara.ini` preset with its project-owned
-ReShade effects without copying source that already has an authoritative public
-repository.
+Lazara is a **controlled color revival effect under adverse conditions**. This
+repository is the temporary standalone installation surface while the
+OpenSurface storefront is being finished.
 
-- Camera Obscura External Image Denoiser and Stabilized Detail Cache are
-  published directly in `reshade-shaders/Shaders`.
-- Lazara, Occult Box, and Guided Detail are pinned as Git submodules under
-  `upstream`.
-- `ReShade.fxh` is an external dependency supplied by the installed ReShade
-  shader package. This repository does not replace it.
+The package contains:
+
+- the `Lazara.ini` preset;
+- all 13 effect files enabled by the preset;
+- the complete local header closure required by those effects;
+- the Camera Obscura External Image Denoiser and Stabilized Detail Cache;
+- pinned temporary copies of Lazara, Occult Box, and Guided Detail source;
+- on/off comparison images, hashes, and a reproducible stitch builder.
+
+`ReShade.fxh` remains an external dependency supplied by ReShade. This package
+does not replace it.
 
 ## On/off comparison
 
@@ -22,56 +27,54 @@ and rebuild instructions are recorded in
 
 ## Install
 
-Do not use GitHub's **Download ZIP** for this repository: source archives do
-not populate the linked submodule repositories.
+No submodules or secondary repository downloads are required.
 
-Clone with the links populated:
+1. Download this repository as a ZIP, or clone it normally.
+2. Copy `reshade-shaders` into the game directory and merge it with the
+   existing `reshade-shaders` directory.
+3. Copy `Lazara.ini` beside the game executable, or select it through ReShade's
+   preset browser.
+4. In ReShade, keep the standard recursive effect search path:
+
+   ```text
+   .\reshade-shaders\Shaders\**
+   ```
+
+5. Select `Lazara.ini` and reload effects.
+
+Keep the installation's current `ReShade.fxh`. The package intentionally does
+not include or overwrite that framework file.
+
+## Temporary vendoring and evidence boundary
+
+The storefront source repositories remain authoritative. For installation
+simplicity, this repository temporarily carries the exact effect/include
+closure from three pinned public revisions:
+
+- `dastardlyrat/lazara` at `2c28697a344fb988d784ed31f4d65b107821327b`;
+- `dastardlyrat/Occult-Box` at `eef2b91b314ddc1a68547d0fb1daa2413adfce66`;
+- `dastardlyrat/OpenSurface-CameraObscura-GuidedDetail` at
+  `68850554650abe22cca029a65f7a807b6b3b3047`.
+
+The complete mapping is in [`DEPENDENCIES.md`](DEPENDENCIES.md), the
+machine-readable source lock is [`dependencies.lock.json`](dependencies.lock.json),
+and every copied byte is recorded in
+[`VENDORED_SHA256SUMS.txt`](VENDORED_SHA256SUMS.txt).
+
+Run the package validator from the repository root:
 
 ```powershell
-git clone --recurse-submodules https://github.com/dastardlyrat/Lazara-Reshade-Package.git
+powershell -ExecutionPolicy Bypass -File .\tools\validate_package.ps1
 ```
 
-If the repository was already cloned:
-
-```powershell
-git submodule update --init --recursive
-```
-
-In ReShade, add these recursive effect search paths, replacing `<package>` with
-the cloned repository directory. Keep the installed ReShade shader directory
-first so its current `ReShade.fxh` takes precedence:
-
-```text
-.\reshade-shaders\Shaders\**
-<package>\reshade-shaders\Shaders\**
-<package>\upstream\lazara\reshade-shaders\Shaders\**
-<package>\upstream\Occult-Box\**
-<package>\upstream\OpenSurface-CameraObscura-GuidedDetail\**
-```
-
-Then select `Lazara.ini` as the preset and reload effects.
-
-The linked Lazara source repository contains a `ReShade.fxh` for its own local
-preprocessing checks. Do not copy that file over a newer installation-provided
-version.
-
-## Contents and evidence boundary
-
-`Lazara.ini` enables 14 techniques from 13 effect files. The complete mapping,
-pinned revisions, and local file hashes are recorded in
-[`DEPENDENCIES.md`](DEPENDENCIES.md) and
-[`dependencies.lock.json`](dependencies.lock.json).
-
-The two directly published Camera Obscura effects were taken from the validated
-OpenSurface public export dated 2026-10-31. Its repository validator passed
-16/16 structural and publication checks. This publication step verifies file
-identity and dependency closure; it is not a new live ReShade compile or visual
-acceptance run.
+Validation establishes preset coverage, local include closure, pinned copied
+bytes, and the absence of Git submodules. It does not substitute for a new live
+ReShade compile, performance pass, or visual acceptance run.
 
 ## Licensing
 
-The directly published Camera Obscura shader and header files carry MIT SPDX
-metadata and are covered by
-[`LICENSES/Camera-Obscura-MIT.txt`](LICENSES/Camera-Obscura-MIT.txt).
-Linked repositories retain their own authorship and license terms. No
-project-wide license is asserted here for material that has not received one.
+Camera Obscura and Guided Detail files are published under MIT; their license
+texts are retained in [`LICENSES`](LICENSES). Lazara and Occult Box do not
+currently declare project-wide licenses. Their temporary inclusion here is
+owner-authorized source distribution and does not invent or imply broader
+license terms. See [`LICENSES/VENDORED-SOURCE-NOTICE.md`](LICENSES/VENDORED-SOURCE-NOTICE.md).
