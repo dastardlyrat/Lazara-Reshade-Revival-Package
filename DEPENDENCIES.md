@@ -1,8 +1,9 @@
 # Dependency Registry
 
-`Lazara.ini` enables 14 techniques from 13 effect files. Stabilized Detail
-Cache supplies two techniques, capture and reapply, which accounts for the
-different totals.
+`Lazara.ini` enables 14 techniques from 13 effect files. Its same-frame
+reference-detail storage and reapplication cycle is supplied by two Stabilized
+Detail Cache techniques, capture and reapply, which accounts for the different
+totals.
 
 ## Temporarily vendored sources
 

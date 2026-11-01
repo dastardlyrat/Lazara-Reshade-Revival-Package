@@ -4,6 +4,10 @@ Lazara is a **controlled color revival effect under adverse conditions**. This
 repository is the temporary standalone installation surface while the
 OpenSurface storefront is being finished.
 
+It also provides **same-frame reference-detail storage and controlled
+reapplication**, preserving selected signed detail across intervening effects
+before restoring it to the final image.
+
 The package contains:
 
 - the `Lazara.ini` preset;
@@ -15,6 +19,19 @@ The package contains:
 
 `ReShade.fxh` remains an external dependency supplied by ReShade. This package
 does not replace it.
+
+## Reference-detail storage and reapplication
+
+The preset uses the Camera Obscura Stabilized Detail Cache as an ordered pair:
+
+1. `CAMERA_OBSCURA_StabilizedDetailCaptureV1` extracts signed reference detail
+   and stores it in a shared RGBA16F render-target cache without changing the
+   displayed image.
+2. `CAMERA_OBSCURA_StabilizedDetailReapplyV1` runs after the intervening effects
+   and reapplies the stored detail under the preset's configured limits.
+
+This is same-frame runtime storage, not persistent disk storage. A stale or
+missing capture returns the current source unchanged.
 
 ## On/off comparison
 
