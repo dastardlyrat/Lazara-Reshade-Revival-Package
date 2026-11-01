@@ -8,6 +8,14 @@
 > represented. It does not alter ownership or underlying license terms. See
 > the [vendored-source notice](LICENSES/VENDORED-SOURCE-NOTICE.md).
 
+## For Lis — patient LEGO builder
+
+![Bidirectional split comparison: effects on then off, followed by effects off then on](docs/images/lazara-bidirectional-split-stitch.png)
+
+The snow-fortress comparison uses Image 1 as OFF and Image 2 as ON. The left
+panel is ON-left/OFF-right; the right panel is OFF-left/ON-right, exposing both
+halves of both source images for side-by-side inspection.
+
 Lazara is a **controlled color revival effect under adverse conditions**. This
 repository is the temporary standalone installation surface while the
 OpenSurface storefront is being finished.
@@ -41,15 +49,7 @@ The preset uses the Camera Obscura Stabilized Detail Cache as an ordered pair:
 This is same-frame runtime storage, not persistent disk storage. A stale or
 missing capture returns the current source unchanged.
 
-## On/off comparison
-
-![Bidirectional split comparison: effects on then off, followed by effects off then on](docs/images/lazara-bidirectional-split-stitch.png)
-
-The split comparison uses the snow-fortress screenshots supplied for Set 3.
-Image 1 is OFF and Image 2 is ON. The left panel is ON-left/OFF-right; the
-right panel is OFF-left/ON-right, exposing both halves of both source images.
-
-### Earlier full-frame sets
+## Earlier full-frame comparisons
 
 ![Two Lazara comparison sets, each showing effects off on the left and on on the right](docs/images/lazara-on-off-stitch.png)
 
