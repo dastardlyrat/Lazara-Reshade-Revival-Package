@@ -1,5 +1,8 @@
 # Lazara ReShade Revival Package
 
+## For Lis — wake lazara there is another life to live
+
+
 > [!IMPORTANT]
 > **Distribution status: perfunctive vendoring.** All vendored files are
 > presented as play-pretend staging for installation convenience, fun, and
@@ -8,7 +11,6 @@
 > represented. It does not alter ownership or underlying license terms. See
 > the [vendored-source notice](LICENSES/VENDORED-SOURCE-NOTICE.md).
 
-## For Lis — patient LEGO builder
 
 ![Bidirectional split comparison: effects on then off, followed by effects off then on](docs/images/lazara-bidirectional-split-stitch.png)
 
