@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **Distribution status: perfunctive vendoring.** All vendored files are
+> presented as play-pretend staging for installation convenience, fun, and
+> profitless humour.
+
 # Lazara ReShade Revival Package
 
 ## Featuring [FlexAgX](https://github.com/El-Greco1541/FlexAgX)
@@ -11,13 +16,6 @@ This is a showcase credit and link; FlexAgX is not vendored into this package.
 ## For Lis — wake lazara there is another life to live
 
 
-> [!IMPORTANT]
-> **Distribution status: perfunctive vendoring.** All vendored files are
-> presented as play-pretend staging for installation convenience, fun, and
-> profitless humour. This is non-transactional and non-monetary: no sale,
-> purchase, payment, fee, royalty, paid license, or storefront transaction is
-> represented. It does not alter ownership or underlying license terms. See
-> the [vendored-source notice](LICENSES/VENDORED-SOURCE-NOTICE.md).
 
 
 ![Bidirectional split comparison: effects on then off, followed by effects off then on](docs/images/lazara-bidirectional-split-stitch.png)
