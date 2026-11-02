@@ -1,7 +1,8 @@
 # Lazara comparison image provenance
 
-The six source screenshots were supplied by the repository owner for public
-presentation on 2026-11-01. The matching viewpoints establish three sets:
+The eight source screenshots were supplied by the repository owner for public
+presentation on 2026-11-01. The matching viewpoints establish three comparison
+sets and one FlexAgX showcase pair:
 
 | Set | State | File | SHA-256 |
 |---|---|---|---|
@@ -11,6 +12,8 @@ presentation on 2026-11-01. The matching viewpoints establish three sets:
 | Eclipse | ON | `source/set-2-on.png` | `1BB2B1BFD8B1482242F62A8D52BBC3564B50F8829311DF852FF2939BEFE9EAEC` |
 | Snow fortress | OFF | `source/set-3-off.png` | `0A76391B6C55E6EC7D6E41596D92F87E5E0810E29EA2AC2B46D907B21453D902` |
 | Snow fortress | ON | `source/set-3-on.png` | `5A7751C78E8B531C09312D779429C5040134C499137C633B8BE070970EEA0F46` |
+| FlexAgX showcase | View 1 | `source/flexagx-view-1.png` | `B7F706E29F79C9A660DCD13F32FFF15A04A81517204D07A232B6373CBE8DDC06` |
+| FlexAgX showcase | View 2 | `source/flexagx-view-2.png` | `001B4A7BCE59ADBE42CABAB6FEE4B81FDA30D9F05B1075BC9A35B4CF8D695425` |
 
 Each source is a 2560x1440 RGB PNG.
 
@@ -33,12 +36,22 @@ has SHA-256
 `93BFD22DD7C7D67BAABF0F154F37C69BCFC19E1F57505507C88E94B6FAD8DC20`.
 Independent decoded-region validation matched all four source halves.
 
+The FlexAgX showcase places View 1 on the left and View 2 on the right at
+native resolution. No source pixel is resized, cropped, or overpainted. The
+generated 5120x1440 stitch has SHA-256
+`DD93837BA11FC542CAA55881E736F1136E11F9F7CFBB346109D2DA9B91432C8F`.
+Independent decoded-region validation matched both complete source images.
+The [FlexAgX repository](https://github.com/El-Greco1541/FlexAgX) is linked for
+showcase credit and is not vendored into this package.
+
 Rebuild from the repository root:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\tools\build_comparison_stitch.ps1
 powershell -ExecutionPolicy Bypass -File .\tools\build_bidirectional_split_stitch.ps1
 powershell -ExecutionPolicy Bypass -File .\tools\validate_bidirectional_split_stitch.ps1
+powershell -ExecutionPolicy Bypass -File .\tools\build_flexagx_showcase.ps1
+powershell -ExecutionPolicy Bypass -File .\tools\validate_flexagx_showcase.ps1
 ```
 
 The screenshots are presentation evidence supplied for this repository. Their

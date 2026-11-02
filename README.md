@@ -1,5 +1,13 @@
 # Lazara ReShade Revival Package
 
+## Featuring [FlexAgX](https://github.com/El-Greco1541/FlexAgX)
+
+![Two supplied snow-city views presented side by side, featuring FlexAgX](docs/images/lazara-flexagx-side-by-side.png)
+
+Featuring [FlexAgX by El-Greco1541](https://github.com/El-Greco1541/FlexAgX).
+The two supplied views are presented in attachment order at native resolution.
+This is a showcase credit and link; FlexAgX is not vendored into this package.
+
 ## For Lis — wake lazara there is another life to live
 
 
