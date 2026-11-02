@@ -1,9 +1,20 @@
-> [!IMPORTANT]
-> **Distribution status: perfunctive vendoring.** All vendored files are
-> presented as play-pretend staging for installation convenience, fun, and
-> profitless humour.
-
 # Lazara ReShade Revival Package
+
+**Color revival. Detail revival. Controlled.**
+
+Lazara is a ReShade preset and curated effect package for scenes that lose
+color separation, tonal presence, and readable surface detail under adverse
+conditions. Its ordered chain guards difficult fog and light, revives
+chromatic and tonal structure, captures reference detail before intervening
+effects, and reapplies that detail under controlled limits at the end of the
+same frame.
+
+This is not a blanket saturation pass or an attempt to invent detail that was
+never present. Lazara is built to make existing color legible again and
+existing detail present again—deliberately, inspectably, and with direct
+before/after evidence.
+
+## For Lis — wake lazara there is another life to live
 
 ## Featuring [FlexAgX](https://github.com/El-Greco1541/FlexAgX)
 
@@ -13,24 +24,42 @@ Featuring [FlexAgX by El-Greco1541](https://github.com/El-Greco1541/FlexAgX).
 The two supplied views are presented in attachment order at native resolution.
 This is a showcase credit and link; FlexAgX is not vendored into this package.
 
-## For Lis — wake lazara there is another life to live
-
-
-
-
 ![Bidirectional split comparison: effects on then off, followed by effects off then on](docs/images/lazara-bidirectional-split-stitch.png)
 
 The snow-fortress comparison uses Image 1 as OFF and Image 2 as ON. The left
 panel is ON-left/OFF-right; the right panel is OFF-left/ON-right, exposing both
 halves of both source images for side-by-side inspection.
 
-Lazara is a **controlled color revival effect under adverse conditions**. This
-repository is the temporary standalone installation surface while the
+## What Lazara revives
+
+### Color under pressure
+
+Lazara treats color as structure, not decoration. Its technique order combines
+fog/light guarding, tone-detail richness, GI color bleed, bloom treatment, and an
+edge chroma ward so that muted or hostile scenes can recover separation and
+presence without reducing the package to a single saturation slider.
+
+### Detail with a reference
+
+The Camera Obscura detail-cache pair captures selected signed reference detail,
+holds it through the intervening color and lighting work, and reapplies it
+under the preset's configured limits. The result is detail revival tied to the
+actual source frame—not free-floating sharpening and not fabricated texture.
+
+### One deliberate chain
+
+The preset coordinates 14 enabled techniques across 13 effect files. Color,
+light, denoising, guided detail, and final edge treatment are ordered as one
+reproducible image path rather than a loose pile of effects.
+
+This repository is the temporary standalone installation surface while the
 OpenSurface storefront is being finished.
 
-It also provides **same-frame reference-detail storage and controlled
-reapplication**, preserving selected signed detail across intervening effects
-before restoring it to the final image.
+> [!IMPORTANT]
+> **Distribution status: perfunctive vendoring.** All vendored files are
+> presented as play-pretend staging for installation convenience, fun, and
+> profitless humour. This is non-transactional and non-monetary; full terms and
+> evidence boundaries appear below.
 
 The package contains:
 
