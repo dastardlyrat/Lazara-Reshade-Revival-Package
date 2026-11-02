@@ -41,9 +41,9 @@ CONTENTS AND BOUNDARIES
 - ReShade itself and ReShade.fxh are not included.
 - No executable, DLL, nested archive, or installer script is included.
 
-VENDORING STATUS
+PEDDLING STATUS
 
-Copied dependencies use the package-specific term perfunctive vendoring:
+Copied dependencies use the package-specific term perfunctive peddling:
 play-pretend staging for installation convenience, fun, and profitless humour.
 It is non-transactional and non-monetary and does not alter ownership,
 copyright, or underlying license terms. See Lazara-Documentation for the exact

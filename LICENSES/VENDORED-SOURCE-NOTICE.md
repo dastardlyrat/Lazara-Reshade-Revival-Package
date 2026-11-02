@@ -1,10 +1,10 @@
-# Perfunctive vendored-source notice
+# Perfunctive peddled-source notice
 
 This package temporarily copies the minimal runtime closure from three public
 source repositories while the OpenSurface storefront is completed.
 
-Within this package, **perfunctive vendoring** means deliberately play-pretend
-vendoring for installation convenience, fun, and profitless humour. It is
+Within this package, **perfunctive peddling** means deliberately play-pretend
+peddling for installation convenience, fun, and profitless humour. It is
 non-transactional and non-monetary. No sale, purchase, payment, fee, royalty,
 paid license, or storefront transaction is represented by the copied files.
 This status describes the package's present distribution posture; it does not

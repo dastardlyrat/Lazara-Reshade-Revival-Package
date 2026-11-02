@@ -42,7 +42,7 @@ generated 5120x1440 stitch has SHA-256
 `DD93837BA11FC542CAA55881E736F1136E11F9F7CFBB346109D2DA9B91432C8F`.
 Independent decoded-region validation matched both complete source images.
 The [FlexAgX repository](https://github.com/El-Greco1541/FlexAgX) is linked for
-showcase credit and is not vendored into this package.
+showcase credit and is not peddled in this package.
 
 Rebuild from the repository root:
 

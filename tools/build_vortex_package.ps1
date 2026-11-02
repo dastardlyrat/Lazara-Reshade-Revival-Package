@@ -97,7 +97,7 @@ try {
         shader_files = 108
         effect_files = 13
         external_framework_files = @('ReShade.fxh')
-        vendoring_status = 'perfunctive; non-transactional; non-monetary'
+        vendoring_status = 'perfunctive peddling; non-transactional; non-monetary'
         ai_assisted_packaging = $true
     }
     $manifestJson = ($manifest | ConvertTo-Json -Depth 5) + "`n"

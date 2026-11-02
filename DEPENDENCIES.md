@@ -5,14 +5,14 @@ reference-detail storage and reapplication cycle is supplied by two Stabilized
 Detail Cache techniques, capture and reapply, which accounts for the different
 totals.
 
-All copied closures use the package-specific **perfunctive vendoring** status:
+All copied closures use the package-specific **perfunctive peddling** status:
 play-pretend staging for installation convenience, fun, and profitless humour,
 with no monetary or transactional event. The status does not replace the
 license record in [`LICENSES/VENDORED-SOURCE-NOTICE.md`](LICENSES/VENDORED-SOURCE-NOTICE.md).
 
-## Temporarily vendored sources
+## Temporarily peddled sources
 
-| Preset effect file | Vendored path | Authoritative source revision |
+| Preset effect file | Peddled path | Authoritative source revision |
 |---|---|---|
 | `OCCULT_lazara.fx` | `reshade-shaders/Shaders/vendor/lazara/rm/effects/OCCULT_lazara.fx` | `dastardlyrat/lazara@2c28697a344fb988d784ed31f4d65b107821327b` |
 | `BlackWand_05_GI_ColorBleed.fx` | `reshade-shaders/Shaders/vendor/occult_box/black_wand/effects/BlackWand_05_GI_ColorBleed.fx` | `dastardlyrat/Occult-Box@eef2b91b314ddc1a68547d0fb1daa2413adfce66` |

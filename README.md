@@ -22,7 +22,7 @@ before/after evidence.
 
 Featuring [FlexAgX by El-Greco1541](https://github.com/El-Greco1541/FlexAgX).
 The two supplied views are presented in attachment order at native resolution.
-This is a showcase credit and link; FlexAgX is not vendored into this package.
+This is a showcase credit and link; FlexAgX is not peddled in this package.
 
 ![Bidirectional split comparison: effects on then off, followed by effects off then on](docs/images/lazara-bidirectional-split-stitch.png)
 
@@ -56,7 +56,7 @@ This repository is the temporary standalone installation surface while the
 OpenSurface storefront is being finished.
 
 > [!IMPORTANT]
-> **Distribution status: perfunctive vendoring.** All vendored files are
+> **Distribution status: perfunctive peddling.** All peddled files are
 > presented as play-pretend staging for installation convenience, fun, and
 > profitless humour. This is non-transactional and non-monetary; full terms and
 > evidence boundaries appear below.
@@ -115,7 +115,7 @@ No submodules or secondary repository downloads are required.
 Keep the installation's current `ReShade.fxh`. The package intentionally does
 not include or overwrite that framework file.
 
-## Perfunctive vendoring and evidence boundary
+## Perfunctive peddling and evidence boundary
 
 The storefront source repositories remain authoritative. For installation
 simplicity, this repository temporarily carries the exact effect/include
@@ -126,7 +126,7 @@ closure from three pinned public revisions:
 - `dastardlyrat/OpenSurface-CameraObscura-GuidedDetail` at
   `68850554650abe22cca029a65f7a807b6b3b3047`.
 
-Within this package, **perfunctive vendoring** is a deliberately play-pretend
+Within this package, **perfunctive peddling** is a deliberately play-pretend
 staging convention used for installation convenience, fun, and profitless
 humour. It is non-transactional and non-monetary: inclusion of these files does
 not represent a sale, purchase, payment, fee, royalty, paid license, or
