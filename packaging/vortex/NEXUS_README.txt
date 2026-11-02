@@ -1,8 +1,9 @@
 LAZARA RESHADE REVIVAL PACKAGE
 Vortex / Nexus installation notes
 
-Lazara is a controlled color revival effect under adverse conditions, with
-same-frame reference-detail storage and reapplication.
+Lazara is a controlled color and detail revival effect under adverse
+conditions, with independent same-frame color, luma, and reference-detail
+storage and reapplication.
 
 REQUIREMENTS
 
@@ -35,7 +36,7 @@ Lazara.ini through ReShade.
 
 CONTENTS AND BOUNDARIES
 
-- Lazara.ini enables 14 techniques from 13 effect files.
+- Lazara.ini enables 18 techniques from 15 effect files.
 - The archive carries the complete local shader/include closure.
 - FlexAgX is credited in the repository showcase but is not included here.
 - ReShade itself and ReShade.fxh are not included.

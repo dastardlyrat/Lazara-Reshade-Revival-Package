@@ -94,8 +94,8 @@ try {
         vortex_mod_type = 'dinput'
         vortex_collections_supported = $false
         preset = 'Lazara.ini'
-        shader_files = 108
-        effect_files = 13
+        shader_files = 110
+        effect_files = 15
         external_framework_files = @('ReShade.fxh')
         vendoring_status = 'perfunctive peddling; non-transactional; non-monetary'
         ai_assisted_packaging = $true

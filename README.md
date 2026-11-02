@@ -5,9 +5,9 @@
 Lazara is a ReShade preset and curated effect package for scenes that lose
 color separation, tonal presence, and readable surface detail under adverse
 conditions. Its ordered chain guards difficult fog and light, revives
-chromatic and tonal structure, captures reference detail before intervening
-effects, and reapplies that detail under controlled limits at the end of the
-same frame.
+chromatic and tonal structure, captures color, luma, and reference detail
+before intervening effects, and reapplies each signal under independent limits
+later in the same frame.
 
 This is not a blanket saturation pass or an attempt to invent detail that was
 never present. Lazara is built to make existing color legible again and
@@ -39,16 +39,17 @@ fog/light guarding, tone-detail richness, GI color bleed, bloom treatment, and a
 edge chroma ward so that muted or hostile scenes can recover separation and
 presence without reducing the package to a single saturation slider.
 
-### Detail with a reference
+### Color, luma, and detail with a reference
 
-The Camera Obscura detail-cache pair captures selected signed reference detail,
-holds it through the intervening color and lighting work, and reapplies it
-under the preset's configured limits. The result is detail revival tied to the
-actual source frame—not free-floating sharpening and not fabricated texture.
+Three independent Camera Obscura cache pairs capture relative chroma, Rec. 709
+luma, and selected signed reference detail. They hold those signals through
+the intervening color and lighting work, then reapply each one at its own point
+and under its own limits. The result is revival tied to the actual source
+frame—not free-floating saturation, sharpening, or fabricated texture.
 
 ### One deliberate chain
 
-The preset coordinates 14 enabled techniques across 13 effect files. Color,
+The preset coordinates 18 enabled techniques across 15 effect files. Color,
 light, denoising, guided detail, and final edge treatment are ordered as one
 reproducible image path rather than a loose pile of effects.
 
@@ -64,24 +65,34 @@ OpenSurface storefront is being finished.
 The package contains:
 
 - the `Lazara.ini` preset;
-- all 13 effect files enabled by the preset;
+- all 15 effect files enabled by the preset;
 - the complete local header closure required by those effects;
-- the Camera Obscura External Image Denoiser and Stabilized Detail Cache;
+- the Camera Obscura External Image Denoiser and independent Stabilized Color,
+  Luma, and Detail caches;
 - pinned temporary copies of Lazara, Occult Box, and Guided Detail source;
 - on/off comparison images, hashes, and a reproducible stitch builder.
 
 `ReShade.fxh` remains an external dependency supplied by ReShade. This package
 does not replace it.
 
-## Reference-detail storage and reapplication
+## Reference color, luma, and detail storage and reapplication
 
-The preset uses the Camera Obscura Stabilized Detail Cache as an ordered pair:
+The preset uses three isolated Camera Obscura RGBA16F caches. Each one is an
+ordered capture/reapply pair:
 
-1. `CAMERA_OBSCURA_StabilizedDetailCaptureV1` extracts signed reference detail
-   and stores it in a shared RGBA16F render-target cache without changing the
-   displayed image.
-2. `CAMERA_OBSCURA_StabilizedDetailReapplyV1` runs after the intervening effects
-   and reapplies the stored detail under the preset's configured limits.
+1. `CAMERA_OBSCURA_StabilizedColorCaptureV1` stores relative chroma;
+   `CAMERA_OBSCURA_StabilizedColorReapplyV1` blends current chroma toward that
+   reference while preserving current luma.
+2. `CAMERA_OBSCURA_StabilizedLumaCaptureV1` stores Rec. 709 luma;
+   `CAMERA_OBSCURA_StabilizedLumaReapplyV1` restores a bounded amount while
+   retaining the current RGB channel separation.
+3. `CAMERA_OBSCURA_StabilizedDetailCaptureV1` extracts selected signed detail;
+   `CAMERA_OBSCURA_StabilizedDetailReapplyV1` adds it back under independent
+   limits.
+
+The capture passes do not change the displayed image. In the supplied preset,
+luma reapplies first, color second, and detail third after the intervening
+effects; the edge-chroma and ink passes remain last.
 
 This is same-frame runtime storage, not persistent disk storage. A stale or
 missing capture returns the current source unchanged.

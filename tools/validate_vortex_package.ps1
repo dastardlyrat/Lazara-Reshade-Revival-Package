@@ -105,8 +105,8 @@ try {
     })
     $effectEntries = @($shaderEntries | Where-Object { $_.FullName -match '\.fx$' })
     $headerEntries = @($shaderEntries | Where-Object { $_.FullName -match '\.fxh$' })
-    if ($shaderEntries.Count -ne 108 -or
-        $effectEntries.Count -ne 13 -or
+    if ($shaderEntries.Count -ne 110 -or
+        $effectEntries.Count -ne 15 -or
         $headerEntries.Count -ne 95) {
         throw (
             "Unexpected shader counts: all=$($shaderEntries.Count), " +

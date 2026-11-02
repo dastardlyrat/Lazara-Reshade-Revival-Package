@@ -28,11 +28,35 @@ $techniques = @(($techniqueLine -replace '^Techniques=', '') -split ',' |
 $effectNames = @($techniques | ForEach-Object { ($_ -split '@', 2)[1] } |
     Sort-Object -Unique)
 
-if ($techniques.Count -ne 14) {
-    $failures.Add("Expected 14 techniques; found $($techniques.Count).")
+$expectedTechniques = @(
+    'CAMERA_OBSCURA_StabilizedColorCaptureV1@CAMERA_OBSCURA_StabilizedColorCacheV1.fx',
+    'CAMERA_OBSCURA_StabilizedLumaCaptureV1@CAMERA_OBSCURA_StabilizedLumaCacheV1.fx',
+    'CAMERA_OBSCURA_StabilizedDetailCaptureV1@CAMERA_OBSCURA_StabilizedDetailCacheV1.fx',
+    'BlackWand_FogLight_Guard@BlackWand_10_FogLight_Guard.fx',
+    'BlackWand_MicroDetail_Clarity@BlackWand_12_MicroDetail_Clarity.fx',
+    'BlackWand_ToneDetail_Richness@BlackWand_07_ToneDetail_Richness.fx',
+    'GoldenWeave_RMGI_Redux@GoldenWeave_RMGI_Redux.fx',
+    'BlackWand_BloomBurst_Corona@BlackWand_14_BloomBurst_Corona.fx',
+    'BlackWand_GI_ColorBleed@BlackWand_05_GI_ColorBleed.fx',
+    'FoolsGold@FoolsGold.fx',
+    'OSCO_GuidedDetailReclamation@OSCO_GuidedDetailReclamation.fx',
+    'OCCULT_lazara@OCCULT_lazara.fx',
+    'CAMERA_OBSCURA_ExternalImageDenoiseV1@CAMERA_OBSCURA_ExternalImageDenoiseV1.fx',
+    'CAMERA_OBSCURA_StabilizedLumaReapplyV1@CAMERA_OBSCURA_StabilizedLumaCacheV1.fx',
+    'CAMERA_OBSCURA_StabilizedColorReapplyV1@CAMERA_OBSCURA_StabilizedColorCacheV1.fx',
+    'CAMERA_OBSCURA_StabilizedDetailReapplyV1@CAMERA_OBSCURA_StabilizedDetailCacheV1.fx',
+    'BlackWand_EdgeChromaWard@BlackWand_21_EdgeChromaWard.fx',
+    'OSCO_GuidedInkLines@OSCO_GuidedInkLines.fx'
+)
+
+if ($techniques.Count -ne 18) {
+    $failures.Add("Expected 18 techniques; found $($techniques.Count).")
 }
-if ($effectNames.Count -ne 13) {
-    $failures.Add("Expected 13 unique effect files; found $($effectNames.Count).")
+if ($effectNames.Count -ne 15) {
+    $failures.Add("Expected 15 unique effect files; found $($effectNames.Count).")
+}
+if (($techniques -join ',') -ne ($expectedTechniques -join ',')) {
+    $failures.Add('Preset technique order does not match the accepted color/luma/detail timing contract.')
 }
 
 $shaderRoot = Join-Path $root 'reshade-shaders\Shaders'
@@ -100,8 +124,8 @@ while ($queue.Count -gt 0) {
     }
 }
 
-if ($visited.Count -ne 108) {
-    $failures.Add("Expected a 108-file shader closure; traversed $($visited.Count).")
+if ($visited.Count -ne 110) {
+    $failures.Add("Expected a 110-file shader closure; traversed $($visited.Count).")
 }
 
 $vendorRoot = Join-Path $shaderRoot 'vendor'

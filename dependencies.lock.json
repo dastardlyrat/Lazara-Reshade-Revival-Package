@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_on": "2026-11-01",
+  "generated_on": "2026-11-02",
   "package_identity": "controlled color revival under adverse conditions",
   "package_mode": "temporary_vendored",
   "vendoring_status": {
@@ -65,6 +65,16 @@
     {
       "path": "reshade-shaders/Shaders/camera_obscura_detail_cache/api/CAMERA_OBSCURA_API_StabilizedDetailCache.fxh",
       "sha256": "FBBCAF786B5C52D4A298CAF4D5A4604DD2CBE996104E3B3AFB16E2C5403B29F4",
+      "license_status": "MIT"
+    },
+    {
+      "path": "reshade-shaders/Shaders/camera_obscura_reapply/effects/CAMERA_OBSCURA_StabilizedColorCacheV1.fx",
+      "sha256": "DCF7389E3BA83E8F73EB9880433F14ABF800CBB2FA9F0D7705779AE5CD655D56",
+      "license_status": "MIT"
+    },
+    {
+      "path": "reshade-shaders/Shaders/camera_obscura_reapply/effects/CAMERA_OBSCURA_StabilizedLumaCacheV1.fx",
+      "sha256": "29FBCDE85ECFADA365A8F7BF484FA99CCE5CC5E955D0DAB95C5648169EB3F952",
       "license_status": "MIT"
     }
   ]
