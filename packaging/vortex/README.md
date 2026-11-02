@@ -13,6 +13,10 @@ deploys files to the game root. Vortex does not apply this override when a mod
 is installed through a Collection, so the Nexus page must retain the direct
 download and manual-install fallback instructions.
 
+Repository comparison screenshots, including the Lazara/Twin Lanterns
+two-panel image, remain presentation evidence under `docs/images` and are not
+copied into the runtime Vortex ZIP.
+
 This package does not need a FOMOD: it has one required payload and no install
 choices. Avoid adding nested archives; Nexus recommends ZIP or 7z and may
 quarantine uploads containing an archive inside another archive.

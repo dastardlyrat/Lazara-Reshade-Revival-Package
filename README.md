@@ -24,6 +24,17 @@ Featuring [FlexAgX by El-Greco1541](https://github.com/El-Greco1541/FlexAgX).
 The two supplied views are presented in attachment order at native resolution.
 This is a showcase credit and link; FlexAgX is not peddled in this package.
 
+### Lazara and Twin Lanterns two-way comparison
+
+![Two supplied Lazara and Twin Lanterns stack captures presented side by side](docs/images/lazara-twin-lantern-two-way.png)
+
+Left: supplied `Lazara-Twin-Lantern` capture. Right: supplied
+`BASEReFlexAgX-Lazara-Twin-Lantern` capture. Both complete 2560×1440 frames are
+presented at native resolution. Because their camera framing differs, this is
+presentation evidence rather than a registered per-pixel A/B or proof that
+isolates the contribution of one effect. Source hashes and exact decoded-pixel
+validation are recorded in [`docs/images/README.md`](docs/images/README.md).
+
 ![Bidirectional split comparison: effects on then off, followed by effects off then on](docs/images/lazara-bidirectional-split-stitch.png)
 
 The snow-fortress comparison uses Image 1 as OFF and Image 2 as ON. The left
@@ -70,7 +81,7 @@ The package contains:
 - the Camera Obscura External Image Denoiser and independent Stabilized Color,
   Luma, and Detail caches;
 - pinned temporary copies of Lazara, Occult Box, and Guided Detail source;
-- on/off comparison images, hashes, and a reproducible stitch builder.
+- on/off and stack comparison images, hashes, and reproducible stitch builders.
 
 `ReShade.fxh` remains an external dependency supplied by ReShade. This package
 does not replace it.
