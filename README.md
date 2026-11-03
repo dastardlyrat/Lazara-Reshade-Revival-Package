@@ -64,6 +64,103 @@ The preset coordinates 18 enabled techniques across 15 effect files. Color,
 light, denoising, guided detail, and final edge treatment are ordered as one
 reproducible image path rather than a loose pile of effects.
 
+## Architecture
+
+Lazara is an ordered frame graph. [`Lazara.ini`](Lazara.ini) establishes the
+runtime sequence, and [`tools/validate_package.ps1`](tools/validate_package.ps1)
+locks that sequence as part of package validation. Three cache effect files
+each expose a capture and a reapply technique, which is why 18 techniques are
+implemented by 15 effect files.
+
+### Runtime dataflow
+
+```mermaid
+flowchart TD
+    A["ReShade back buffer"] --> B["Reference capture<br/>color · luma · detail"]
+    B --> C["Protection and shaping<br/>fog/light guard · micro detail · tone richness"]
+    C --> D["Light and surface synthesis<br/>GoldenWeave GI · bloom · GI color bleed · FoolsGold SSR"]
+    D --> E["Guided recovery<br/>Guided Detail · Lazara · external denoiser"]
+    E --> F["Bounded reapply<br/>luma → color → detail"]
+    F --> G["Final cleanup<br/>edge chroma ward → guided ink"]
+    G --> H["ReShade output"]
+    B -. "three isolated same-frame RGBA16F caches" .-> F
+```
+
+The capture techniques write reference textures and do not change the
+displayed image. The visible back buffer continues through the intervening
+stack; the cached signals return only at their explicit reapply points.
+
+### Accepted technique order
+
+| Positions | Phase | Techniques | Responsibility |
+|---:|---|---|---|
+| 1–3 | Reference capture | `StabilizedColorCapture`, `StabilizedLumaCapture`, `StabilizedDetailCapture` | Record source-relative chroma, Rec. 709 luma, and signed local detail before the image is reshaped. |
+| 4–6 | Protection and shaping | `FogLight_Guard`, `MicroDetail_Clarity`, `ToneDetail_Richness` | Protect difficult fog/light regions and establish fine-detail and tone structure. |
+| 7–10 | Light and surface synthesis | `GoldenWeave_RMGI_Redux`, `BloomBurst_Corona`, `GI_ColorBleed`, `FoolsGold` | Apply screen-space GI, controlled bloom, color bleed, and layered screen-space reflections. |
+| 11–13 | Guided recovery | `GuidedDetailReclamation`, `OCCULT_lazara`, `ExternalImageDenoiseV1` | Recover supported detail and observed color, then reduce source-domain spatial/temporal noise. |
+| 14–16 | Bounded reapply | `StabilizedLumaReapply`, `StabilizedColorReapply`, `StabilizedDetailReapply` | Restore only the captured signals, in luma→color→detail order, under independent limits. |
+| 17–18 | Final cleanup | `EdgeChromaWard`, `GuidedInkLines` | Remove thin color fringes and apply the final stable, same-surface line treatment. |
+
+The table describes the supplied preset, not a claim that every stage is
+universally required. Reordering capture/reapply stages changes their reference
+contract and is therefore an architectural change, not a cosmetic preference.
+
+### Three isolated same-frame caches
+
+The default build allocates three full-resolution `RGBA16F` textures. Each
+cache stores a frame stamp in alpha, and each reapply pass requires that stamp
+to match the current frame. A stale, missing, disabled, or first-frame capture
+has zero authority, so the reapply path returns the current source unchanged.
+
+1. `CAMERA_OBSCURA_StabilizedColorCaptureV1` stores source chroma relative to
+   source luma. `CAMERA_OBSCURA_StabilizedColorReapplyV1` moves current chroma
+   toward that reference while preserving current luma.
+2. `CAMERA_OBSCURA_StabilizedLumaCaptureV1` stores Rec. 709 luma.
+   `CAMERA_OBSCURA_StabilizedLumaReapplyV1` restores a bounded scalar luma
+   difference while retaining the current RGB channel separation.
+3. `CAMERA_OBSCURA_StabilizedDetailCaptureV1` extracts a color- and
+   depth-aware signed residual from a local base.
+   `CAMERA_OBSCURA_StabilizedDetailReapplyV1` adds that residual back under an
+   independent signed per-channel limit.
+
+This is GPU memory used within the running ReShade pipeline. It is not a disk
+cache, saved history, or cross-session learning system.
+
+### Containment and failure behavior
+
+| Component | Containment rule | Failure behavior |
+|---|---|---|
+| Color cache | Luma floor, stored relative-chroma limit, applied-delta limit, zero-luma projection, and gamut fit | Stale or disabled cache contributes no correction. |
+| Luma cache | Applied scalar limit plus per-channel headroom before output saturation | Stale or disabled cache contributes no correction. |
+| Detail cache | Color/depth support, capture threshold, stored limit, reapply limit, and final gamut clamp | Stale or disabled cache contributes no detail. |
+| External denoiser | Multiscale noise targets, local-range clamps, history matching, residual rejection, and independent spatial/temporal authority | Invalid history removes temporal authority; the spatial path remains separately bounded. |
+
+The external denoiser owns its own source and denoised history textures. It is
+a source-domain cleanup stage for the already composed image; it does not
+perform ray traversal, donor transport, reconstruction, or additive GI.
+
+### Runtime and repository boundaries
+
+```text
+Lazara.ini                                  ordered preset
+reshade-shaders/Shaders/
+|-- camera_obscura_external/               directly published denoiser
+|-- camera_obscura_reapply/                directly published color/luma caches
+|-- camera_obscura_detail_cache/           directly published detail cache
+`-- vendor/
+    |-- lazara/                            pinned Lazara color-revival closure
+    |-- occult_box/                        pinned BlackWand, GoldenWeave, FoolsGold closure
+    `-- guided_detail/                     pinned Guided Detail and Guided Ink closure
+
+docs/, tools/, packaging/                  evidence, validation, and distribution only
+ReShade.fxh                                external framework dependency
+```
+
+Only `Lazara.ini` and the shader tree participate in the runtime image path.
+The dependency registry, source lock, manifests, screenshot ledger, builders,
+and validators make that path reproducible and inspectable; they do not run as
+ReShade effects.
+
 This repository is the temporary standalone installation surface while the
 OpenSurface storefront is being finished.
 
@@ -85,28 +182,6 @@ The package contains:
 
 `ReShade.fxh` remains an external dependency supplied by ReShade. This package
 does not replace it.
-
-## Reference color, luma, and detail storage and reapplication
-
-The preset uses three isolated Camera Obscura RGBA16F caches. Each one is an
-ordered capture/reapply pair:
-
-1. `CAMERA_OBSCURA_StabilizedColorCaptureV1` stores relative chroma;
-   `CAMERA_OBSCURA_StabilizedColorReapplyV1` blends current chroma toward that
-   reference while preserving current luma.
-2. `CAMERA_OBSCURA_StabilizedLumaCaptureV1` stores Rec. 709 luma;
-   `CAMERA_OBSCURA_StabilizedLumaReapplyV1` restores a bounded amount while
-   retaining the current RGB channel separation.
-3. `CAMERA_OBSCURA_StabilizedDetailCaptureV1` extracts selected signed detail;
-   `CAMERA_OBSCURA_StabilizedDetailReapplyV1` adds it back under independent
-   limits.
-
-The capture passes do not change the displayed image. In the supplied preset,
-luma reapplies first, color second, and detail third after the intervening
-effects; the edge-chroma and ink passes remain last.
-
-This is same-frame runtime storage, not persistent disk storage. A stale or
-missing capture returns the current source unchanged.
 
 ## Earlier full-frame comparisons
 
@@ -166,9 +241,10 @@ Run the package validator from the repository root:
 powershell -ExecutionPolicy Bypass -File .\tools\validate_package.ps1
 ```
 
-Validation establishes preset coverage, local include closure, pinned copied
-bytes, and the absence of Git submodules. It does not substitute for a new live
-ReShade compile, performance pass, or visual acceptance run.
+Validation establishes the accepted 18-stage order, preset coverage, technique
+ownership, the 110-file local include closure, pinned copied bytes, and the
+absence of Git submodules. It does not substitute for a new live ReShade
+compile, performance pass, or visual acceptance run.
 
 ## Licensing
 
