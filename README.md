@@ -183,6 +183,14 @@ The package contains:
 `ReShade.fxh` remains an external dependency supplied by ReShade. This package
 does not replace it.
 
+## Related XCOM 2 guided-detail and ink reference
+
+[![XCOM 2 engineering room with Camera Obscura Guided Detail Reclamation and Guided Ink Lines added](https://raw.githubusercontent.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail/1d86ee6eb6be570497c2a0aa1d0b3f6df70875e8/docs/images/xcom2-engineering-guided-detail-with-ink-2026-06-24.png)](https://github.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail/blob/1d86ee6eb6be570497c2a0aa1d0b3f6df70875e8/docs/images/xcom2-engineering-guided-detail-with-ink-2026-06-24.png)
+
+This user-supplied 2026-06-24 XCOM 2 screenshot is a **combined Guided Detail Reclamation + Guided Ink Lines** reference, published in the [Camera Obscura Guided Detail repository](https://github.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail/blob/1d86ee6eb6be570497c2a0aa1d0b3f6df70875e8/README.md) with [image provenance](https://github.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail/blob/1d86ee6eb6be570497c2a0aa1d0b3f6df70875e8/docs/images/README.md). It is relevant to Lazara because its curated effect chain includes both stages, but **does not establish that the full Lazara preset was active** in this capture. No independent effect-isolation, before/after comparison, parameter record, or Lazara-specific validation is asserted.
+
+The image is linked from the original Camera Obscura source rather than duplicated into Lazara's pinned runtime package. See the [image evidence notes](docs/images/README.md) for the distinction between this qualitative reference and Lazara's full-frame comparison sets.
+
 ## Earlier full-frame comparisons
 
 ![Two Lazara comparison sets, each showing effects off on the left and on on the right](docs/images/lazara-on-off-stitch.png)

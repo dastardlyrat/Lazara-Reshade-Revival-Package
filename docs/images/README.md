@@ -73,3 +73,13 @@ powershell -ExecutionPolicy Bypass -File .\tools\validate_lazara_twin_lantern_co
 The screenshots are presentation evidence supplied for this repository. Their
 inclusion does not assert ownership of the depicted game's art and does not put
 that art under the Camera Obscura MIT software license.
+
+## External related reference: Guided Detail Reclamation + Ink Lines
+
+- **Image:** [XCOM 2 engineering-room screenshot](https://github.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail/blob/1d86ee6eb6be570497c2a0aa1d0b3f6df70875e8/docs/images/xcom2-engineering-guided-detail-with-ink-2026-06-24.png)
+- **Provenance:** [Camera Obscura source record](https://github.com/dastardlyrat/OpenSurface-CameraObscura-GuidedDetail/blob/1d86ee6eb6be570497c2a0aa1d0b3f6df70875e8/docs/images/README.md)
+- **Date on supplied source filename:** 2026-06-24.
+- **Classification:** user-supplied combined-effect qualitative reference, **not** a Lazara full-stack capture, registered A/B comparison, or validation of active techniques.
+- **Storage:** external link to the source repository; no vendored screenshot added here and no changes to the 18-technique preset or shader closure.
+
+This reference is deliberately separate from the comparison-source inventory above. It cannot establish performance, exact shader settings, or a full Lazara runtime session.
