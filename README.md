@@ -261,3 +261,11 @@ texts are retained in [`LICENSES`](LICENSES). Lazara and Occult Box do not
 currently declare project-wide licenses. Their temporary inclusion here is
 owner-authorized source distribution and does not invent or imply broader
 license terms. See [`LICENSES/VENDORED-SOURCE-NOTICE.md`](LICENSES/VENDORED-SOURCE-NOTICE.md).
+
+## Project directory and related work
+
+[Browse the dastardlyrat project directory](https://dastardlyrat.github.io/).
+
+- [OpenSurface](https://github.com/dastardlyrat/OpenSurface)
+- [Occult-Box](https://github.com/dastardlyrat/Occult-Box)
+- [reshade-preset-catalog](https://github.com/dastardlyrat/reshade-preset-catalog)
