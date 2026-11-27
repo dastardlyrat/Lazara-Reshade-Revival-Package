@@ -64,6 +64,41 @@ The preset coordinates 18 enabled techniques across 15 effect files. Color,
 light, denoising, guided detail, and final edge treatment are ordered as one
 reproducible image path rather than a loose pile of effects.
 
+## Lazara core and package revision
+
+The bundled Lazara effect is at
+[`reshade-shaders/Shaders/vendor/lazara/rm/effects/OCCULT_lazara.fx`](reshade-shaders/Shaders/vendor/lazara/rm/effects/OCCULT_lazara.fx).
+Its source revision is `2c28697a344fb988d784ed31f4d65b107821327b`, as recorded
+in [`dependencies.lock.json`](dependencies.lock.json).
+
+The 27 November 2026 source comparison confirmed that this bundled shader and
+the source repository's current core shader are byte-identical. The nested
+copy does not contain a separate newer Lazara implementation. This package's
+broader color, luma, and detail workflow comes from the surrounding effect
+chain and its preset settings.
+
+The core provides `Recover Color` and `Degrade Color`, source-derived local
+palette and harmony guidance, bounded muted-hue migration, neutral/highlight
+protection, and diagnostics. The supplied preset selects `Recover Color`
+with `Final Composite` output and zero manual temperature bias.
+
+Four saved Lazara settings differ from the core's shader defaults:
+
+| Control | Shader default | Supplied `Lazara.ini` |
+|---|---:|---:|
+| Color Strength | 1.45 | 2.60 |
+| Muted Color Lift | 1.75 | 2.60 |
+| Dominant Hue Vibrancy | 1.65 | 1.03 |
+| Tone Contrast | 1.14 | 1.02 |
+
+Recovery includes tone shaping and partial luma restoration. The core's
+degradation mode blends source RGB toward source luma and bypasses revival and
+chromatic-split sampling. That switch controls the Lazara stage; the other
+enabled package stages continue to run.
+
+This is a source, preset, and documentation comparison. It does not establish
+a new live ReShade compile, performance measurement, or visual acceptance run.
+
 ## Architecture
 
 Lazara is an ordered frame graph. [`Lazara.ini`](Lazara.ini) establishes the
